@@ -1,5 +1,3 @@
-
-
 import subprocess
 import json
 import os
@@ -144,16 +142,15 @@ def process_videos_in_folder(input_folder_path, output_folder_path, min_date_tim
         return None
 
 # Example usage
-input_folder_path = r'C:\Users\mek0967\OneDrive - University of Tulsa\TU MASTER\Thesis\Maldistribution\Experiments\Experimental Recordings\Go-Pro\Calibration-Dye experiments'
-output_folder_path = r'C:\Users\mek0967\OneDrive - University of Tulsa\TU MASTER\Thesis\Maldistribution\Experiments\Experimental Recordings\Go-Pro\Calibration-Dye experiments'
-min_date_time = datetime(2023, 1, 1, 14, 20, 0)  # Replace with your desired start date and time
-max_date_time = datetime.now()  # Current time as maximum date
-operation = 'move'  # Set to 'move' or 'copy' based on your preference
+input_folder_path = r’Here the input folder'
+output_folder_path = r’Here output folder'
+min_date_time = datetime(2023, 1, 1, 14, 20, 0) # Replace with your desired start date and time
+max_date_time = datetime.now() # Current time as maximum date
+operation = 'move' # Set to 'move' or 'copy' based on your preference
+metadata_results = process_videos_in_folder(input_folder_path, output_folder_path, min_date_time, max_date_time, operation)
+if metadata_results:
+for video_file, metadata in metadata_results.items():
+print(f"\nMetadata for {video_file}:")
+for key, value in metadata.items():
+print(f"{key}: {value}")
 
-metadata_results = process_videos_in_folder(input_folder_path, output_folder_path, min_date_time, max_date_time, operation)
-
-if metadata_results:
-    for video_file, metadata in metadata_results.items():
-        print(f"\nMetadata for {video_file}:")
-        for key, value in metadata.items():
-            print(f"{key}: {value}")
